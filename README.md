@@ -1,4 +1,4 @@
-# MPPI Control for UR5e Robot
+# MPPI Control for UR5e Robot: Efficient Manipulation in Presence of Dynamic Uncertainties Via Output-Sampled Model-Based Learning Control
 
 This repository contains a Model Predictive Path Integral (MPPI) controller implementation for the UR5e robot using ROS and Gazebo simulation. The controller features GPU acceleration using CUDA for improved performance.
 
