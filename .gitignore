@@ -34,3 +34,4 @@ venv/
 # Temporary files
 *.tmp
 *.temp
+src/mppi_control/README.md
