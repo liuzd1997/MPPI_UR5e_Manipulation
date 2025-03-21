@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="sphere_obstacle">
+    <static>true</static>  <!-- 让球固定不动 -->
+    <pose>0 0 0.25 0 0 0</pose>  <!-- 默认位置 -->
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <sphere>
+            <radius>0.06</radius>  <!-- radius 0.2m -->
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <sphere>
+            <radius>0.06</radius>
+          </sphere>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

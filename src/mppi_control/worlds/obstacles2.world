@@ -1,0 +1,87 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="mppi_world">
+    
+    <!-- 1) Basic environment: Sunlight & ground plane -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- 2) Obstacle (Red sphere)
+         Matches the obstacle definition in mppi_ur5e_controller.py:
+         self.obstacles = [ np.array([0.4, 0.25, 0.3]) ]
+         with obstacle_radius = 0.02
+         Placed at xyz = (0.4, 0.25, 0.3), radius = 0.02
+    -->
+    <model name="Obstacle">
+      <pose>0.4 0.25 0.3 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.02</radius>
+            </sphere>
+          </geometry>
+          <max_contacts>1</max_contacts>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.02</radius>
+            </sphere>
+          </geometry>
+          <!-- Specify material or color -->
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Red</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 3) Target (Green sphere)
+         If you'd like to visualize a target in Cartesian space
+         (e.g. x=0.4, y=0.1, z=0.3), you can place it here.
+         If you're currently using only a joint-space goal, you may omit this.
+    -->
+    <model name="Target">
+      <pose>0.515 0.5 0.624 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.01</radius>
+            </sphere>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.01</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Green</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 4) Additional world settings (optional) -->
+    <physics type="ode">
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+
+  </world>
+</sdf>

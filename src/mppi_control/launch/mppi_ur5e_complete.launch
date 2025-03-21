@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Launch Gazebo with empty world -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find mppi_control)/worlds/obstacles2.world"/>
+    </include>
+
+    <!-- Launch UR5e -->
+    <include file="$(find ur_gazebo)/launch/ur5e_bringup.launch">
+        <arg name="robot_name" value="ur5e"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gazebo_model_path" value="$(find mppi_control)/worlds"/>
+        <arg name="gui" value="false"/>
+        <arg name="launch_gazebo" value="false"/>
+    </include>
+
+    <!-- Launch MPPI controller with correct Python path -->
+    <node name="mppi_controller" pkg="mppi_control" type="mppi_ur5e_controller.py" output="screen">
+        <env name="PATH" value="/usr/bin:$(env PATH)"/>
+        <env name="PYTHONPATH" value="/usr/lib/python3/dist-packages:$(env PYTHONPATH)"/>
+    </node>
+
+</launch> 

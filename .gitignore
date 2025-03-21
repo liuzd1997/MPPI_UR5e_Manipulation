@@ -1,0 +1,61 @@
+# ROS specific
+*.pyc
+*.pyo
+*.pyd
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ROS build
+build/
+devel/
+install/
+*.cmake
+!CMakeLists.txt
+!package.xml
+
+# IDE specific
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+log/
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Gazebo
+.gazebo/
+*.world.bak
+*.world.old
+
+# Temporary files
+*.tmp
+*.temp
+*.bak 
